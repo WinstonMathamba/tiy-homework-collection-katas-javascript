@@ -6,7 +6,7 @@
 //First Last Six - Given an array of integers, return true if 6 appears
 //as either the first or last element in the array. The array will be length 1 or more.
 function firstLast6(list) {
-    return (list[0] == 6 || list[list.length - 1] == 6)
+    return (list[0] == 6 || list[list.length - 1] == 6);
 
 }
 var list = [1, 2, 6];
@@ -114,3 +114,107 @@ list = [3, 2];
 console.log("Example of sumFirst Penultimate", list, "->> ", sumFirstPen(list));
 list = [2, 4, 6, 4, 9];
 console.log("Example of sumFirst Penultimate", list, "->> ", sumFirstPen(list));
+console.log("");
+
+
+//Map Bully - Modify and return the given HashMap as follows: if the key "a" has a value,
+//set the key "b" to have that value, and set the key "a" to have the value "".
+//Basically "b" is a bully, taking the value of "a".
+
+
+function mapBully(map) {
+    if (map["a"]) {
+        map["b"] = map["a"];
+        map["a"] = [];
+    }
+    return map;
+}
+
+var mappy = {"a": "candy", "b": "dirt"};
+console.log("Example of Map Bully", JSON.stringify(mappy), " --> ", mapBully(mappy));
+
+mappy = {"a": "candy"};
+console.log("Example of Map Bully", JSON.stringify(mappy), " --> ", mapBully(mappy));
+
+mappy = {"b": "carrot", "c": "meh", "a": "candy"};
+console.log("Example of Map Bully", JSON.stringify(mappy), " --> ", mapBully(mappy));
+
+mappy = {"b": "spinach", "c": "beans", "a": "lunchmoney"};
+console.log("Example of Map Bully", JSON.stringify(mappy), " --> ", mapBully(mappy));
+
+mappy = {"a": "ball", "b": "stick", "c": "sneakers"};
+console.log("Example of Map Bully", JSON.stringify(mappy), " --> ", mapBully(mappy));
+
+mappy = {"a": "girlfriend", "b": ""};
+console.log("Example of Map Bully", JSON.stringify(mappy), " --> ", mapBully(mappy));
+console.log("");
+
+
+//Map Share - Modify and return the given object as follows: if the key "a" has a value,
+//set the key "b" to have that same value. In all cases remove the key "c",
+// leaving the rest of the object unchanged.
+
+function mapShare(map) {
+
+    if (map["a"]) {
+        map = {"a": map["a"], "b": map["a"]};
+    }
+    delete map["c"];
+    return map;
+}
+
+mappy = {"b": "bbb", "c": "ccc", "a": "aaa"};
+console.log("Example of Map Share", JSON.stringify(mappy), " --> ", mapShare(mappy));
+
+mappy = {"b": "xyz", "c": "ccc"};
+console.log("Example of Map Share", JSON.stringify(mappy), " --> ", mapShare(mappy));
+
+mappy = {"d": "hi", "c": "meh", "a": "aaa"};
+console.log("Example of Map Share", JSON.stringify(mappy), " --> ", mapShare(mappy));
+
+mappy = {"b": "heyhey", "c": "hihi", "a": "goodDay"};
+console.log("Example of Map Share", JSON.stringify(mappy), " --> ", mapShare(mappy));
+
+mappy = {"a": "Twofor", "c": "onefor", "b": "triple"};
+console.log("Example of Map Share", JSON.stringify(mappy), " --> ", mapShare(mappy));
+console.log("");
+
+
+
+//
+//MapAB - Modify and return the given object as follows: for this problem the object may or
+//may not contain the "a" and "b" keys. If both keys are present, append their 2 string values
+// together and store the result under the key "ab".
+
+
+function mapAB(map) {
+
+    if(map["a"] && map["b"]) {
+        var ab = map["a"] + map["b"];
+        map = {"a":map["a"],"b":map["b"],"ab":ab};
+    }
+    return map;
+}
+
+mappy = {"b": "There", "a": "Hi"};
+console.log("Example of Map AB", JSON.stringify(mappy), " --> ", mapAB(mappy));
+
+
+
+
+//     var newMap = map;
+//
+//     if (newMap["a"] && newMap["b"]) {
+//         newMap["ab"] = (newMap["a"] + newMap["b"]);
+//     }
+//     return newMap;
+//
+// }
+
+//
+//
+//
+//
+//
+
+
