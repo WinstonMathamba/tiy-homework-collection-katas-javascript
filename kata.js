@@ -180,7 +180,6 @@ console.log("Example of Map Share", JSON.stringify(mappy), " --> ", mapShare(map
 console.log("");
 
 
-
 //
 //MapAB - Modify and return the given object as follows: for this problem the object may or
 //may not contain the "a" and "b" keys. If both keys are present, append their 2 string values
@@ -189,9 +188,9 @@ console.log("");
 
 function mapAB(map) {
 
-    if(map["a"] && map["b"]) {
+    if (map["a"] && map["b"]) {
         var ab = map["a"] + map["b"];
-        map = {"a":map["a"],"b":map["b"],"ab":ab};
+        map = {"a": map["a"], "b": map["b"], "ab": ab};
     }
     return map;
 }
@@ -199,22 +198,23 @@ function mapAB(map) {
 mappy = {"b": "There", "a": "Hi"};
 console.log("Example of Map AB", JSON.stringify(mappy), " --> ", mapAB(mappy));
 
+//Word Length - Given an array of strings, return a object containing a key for every
+//different string in the array, and the value is that string's length.
+
+function wordLength(map) {
+
+     map.forEach(function(value, index, map) {
+        var newMap = ({});
+        if (!newMap[map]) {
+            newMap[value,value.length];
+
+        }
+         return newMap;
+     })
 
 
+}
 
-//     var newMap = map;
-//
-//     if (newMap["a"] && newMap["b"]) {
-//         newMap["ab"] = (newMap["a"] + newMap["b"]);
-//     }
-//     return newMap;
-//
-// }
-
-//
-//
-//
-//
-//
-
-
+console.log("");
+var wordList = ["a", "bb", "a", "bb"];
+console.log("Example of Map Word Length", wordList , " --> ", wordLength(mappy));
