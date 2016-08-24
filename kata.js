@@ -197,24 +197,66 @@ function mapAB(map) {
 
 mappy = {"b": "There", "a": "Hi"};
 console.log("Example of Map AB", JSON.stringify(mappy), " --> ", mapAB(mappy));
+mappy = {"a": "Hi", "a": "Hi"};
+console.log("Example of Map AB", JSON.stringify(mappy), " --> ", mapAB(mappy));
+mappy = {"b": "There", "b": "There"};
+console.log("Example of Map AB", JSON.stringify(mappy), " --> ", mapAB(mappy));
+mappy = {"b": "hello", "a": "say"};
+console.log("Example of Map AB", JSON.stringify(mappy), " --> ", mapAB(mappy));
+mappy = {"a": "PB&", "b": "Jelly","c":"tuna"};
+console.log("Example of Map AB", JSON.stringify(mappy), " --> ", mapAB(mappy));
+mappy = {"a": "Beans", "b": "&Rice", "d":"pot roast"};
+console.log("Example of Map AB", JSON.stringify(mappy), " --> ", mapAB(mappy));
 
-//Word Length - Given an array of strings, return a object containing a key for every
-//different string in the array, and the value is that string's length.
-
-function wordLength(map) {
-
-     map.forEach(function(value, index, map) {
-        var newMap = ({});
-        if (!newMap[map]) {
-            newMap[value,value.length];
-
-        }
-         return newMap;
-     })
-
-
-}
 
 console.log("");
-var wordList = ["a", "bb", "a", "bb"];
-console.log("Example of Map Word Length", wordList , " --> ", wordLength(mappy));
+
+
+//Given an array of strings, return a object containing a key for
+//every different string in the array, and the value is that string's length.
+
+function wordLen(words) {
+    var result = {};
+    for (var i = 0; i < words.length; i++) {
+        result[words[i]] = words[i].length;
+
+    }
+    return result;
+}
+
+console.log("example of wordLen [a, bb, a, bb] ---> ", wordLen(["a", "bb", "a", "bb"]));
+console.log("example of wordLen [bbb, aa, ccc] --> ", wordLen(["bbb", "aa", "ccc"]));
+console.log("Example of wordLen [this, and, that, and] -->", wordLen(["this", "and", "that", "and"]));
+console.log("Example of wordLen [code, code, code, bug] -->", wordLen(["code", "code", "code", "bug"]));
+console.log("Example of wordLen [bang, bang, boom, boom, boom] -->", wordLen(["bang", "bang", "boom", "boom", "boom"]));
+console.log("Example of wordlen [do, dont, dare, darn, darn, do] --> ", wordLen(["do", "dont", "dare", "darn", "darn", "do"]));
+console.log("");
+
+
+//Index Words - Given an array of words, return a object containing a keys
+// for every word's first letter. The value for the key will be an array of all words
+//in the list that start with that letter. An empty string has no first letter so don't add a key for it.
+
+function indexWords(words) {
+    var result = {};
+    if(words == ""){
+        return words;
+    }
+    for (var i = 0; i < words.length; i++) {
+        var arraynew = [];
+        if (!result[words[i].substr(0, 1)]) {
+            result[words[i].substr(0, 1)] = [];
+        }
+        result[words[i].substr(0, 1)].push(words[i]);
+
+
+    }
+    return result;
+}
+
+console.log("example of indexWords -->", indexWords(["aardvark", "apple", "zamboni", "phone"]));
+console.log("example of indexWords -->", indexWords(["elephant",]));
+console.log("example of indexWords -->", indexWords([]));
+console.log("example of indexWords -->", indexWords([""]));
+console.log("example of indexWords -->", indexWords(["mango", "milk", "macaroni", "pizza","pie","bead"]));
+console.log("example of indexWords -->", indexWords(["adam", "allen", "brad", "katherine"]));
